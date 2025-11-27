@@ -235,7 +235,7 @@
             {{-- SECTION 6: Mailing Address --}}
             <div class="mb-4">
                 <h5 class="text-primary border-bottom pb-2 mb-3">
-                    <i class="fas fa-envelope"></i> Mailing Address
+                    <i class="fas fa-envelope"></i> Mailing/Current Address
                 </h5>
                 @if($registrationForm->same_as_permanent)
                     <div class="alert alert-info">

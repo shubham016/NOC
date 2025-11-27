@@ -25,19 +25,19 @@
                 <div class="d-flex flex-wrap justify-content-between border-bottom position-relative">
                     <div class="tab-item active" data-step="1">
                         <span class="tab-circle">1</span>
-                        <span class="tab-label d-none d-md-inline">Personal Information</span>
+                        <span class="tab-label d-none d-md-inline">Personal</span>
                     </div>
                     <div class="tab-item" data-step="2">
                         <span class="tab-circle">2</span>
-                        <span class="tab-label d-none d-md-inline">General Information</span>
+                        <span class="tab-label d-none d-md-inline">General</span>
                     </div>
                     <div class="tab-item" data-step="3">
                         <span class="tab-circle">3</span>
-                        <span class="tab-label d-none d-md-inline">Permanent Address</span>
+                        <span class="tab-label d-none d-md-inline">Address</span>
                     </div>
                     <div class="tab-item" data-step="4">
                         <span class="tab-circle">4</span>
-                        <span class="tab-label d-none d-md-inline">Mailing Address</span>
+                        <span class="tab-label d-none d-md-inline">Address</span>
                     </div>
                     <div class="tab-item" data-step="5">
                         <span class="tab-circle">5</span>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="tab-item" data-step="6">
                         <span class="tab-circle">6</span>
-                        <span class="tab-label d-none d-md-inline">Work Experience</span>
+                        <span class="tab-label d-none d-md-inline">Experience</span>
                     </div>
                     <div class="tab-item" data-step="7">
                         <span class="tab-circle">7</span>
@@ -312,7 +312,7 @@
 
                 <!-- STEP 4: Mailing Address -->
                 <div class="step d-none" id="step4">
-                    <h5 class="mb-4 text-primary">Step 4 — Mailing Address</h5>
+                    <h5 class="mb-4 text-primary">Step 4 — Mailing/Current Address</h5>
                     <div class="form-check mb-4">
                         <input type="checkbox" class="form-check-input" id="same_as_permanent" {{ old('same_as_permanent') ? 'checked' : '' }}>
                         <label class="form-check-label" for="same_as_permanent">Same as Permanent Address</label>
