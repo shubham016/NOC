@@ -59,7 +59,6 @@
                 @csrf
                 @method('PUT')
 
-                {{-- All Steps Remain Unchanged (Only class changes for visibility) --}}
                {{-- STEP 1: Personal Info --}}
                 <div class="step active" id="step1">
                     <h5 class="mb-4 text-primary">Step 1 — Personal Information</h5>
