@@ -1,18 +1,16 @@
 @extends('layouts.app')
-
-@section('title', 'New Registration Form')
-
+@section('title', 'Create Registration Form')
 @section('content')
-<div class="container my-4">
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-            <h4 class="mb-0">NOC | Employee Vacancy Registration Form</h4>
+<div class="container my-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white text-center py-4">
+            <h3 class="mb-0 fw-bold">NOC | Create New Employee Registration Form</h3>
         </div>
+        <div class="card-body p-5">
 
-        <div class="card-body">
             {{-- Validation Errors --}}
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert alert-danger alert-dismissible fade show">
                     <strong>There were some problems with your input:</strong>
                     <ul class="mb-0 mt-2">
                         @foreach ($errors->all() as $error)
@@ -22,12 +20,38 @@
                 </div>
             @endif
 
-            {{-- Progress Bar --}}
-            <div class="mb-4">
-                <div class="progress" style="height: 38px;">
-                    <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 14%;">
-                        Step 1 of 7
+            {{-- Clickable Tabs Navigation --}}
+            <div class="step-tabs mb-5">
+                <div class="d-flex flex-wrap justify-content-between border-bottom position-relative">
+                    <div class="tab-item active" data-step="1">
+                        <span class="tab-circle">1</span>
+                        <span class="tab-label d-none d-md-inline">Personal Information</span>
                     </div>
+                    <div class="tab-item" data-step="2">
+                        <span class="tab-circle">2</span>
+                        <span class="tab-label d-none d-md-inline">General Information</span>
+                    </div>
+                    <div class="tab-item" data-step="3">
+                        <span class="tab-circle">3</span>
+                        <span class="tab-label d-none d-md-inline">Permanent Address</span>
+                    </div>
+                    <div class="tab-item" data-step="4">
+                        <span class="tab-circle">4</span>
+                        <span class="tab-label d-none d-md-inline">Mailing Address</span>
+                    </div>
+                    <div class="tab-item" data-step="5">
+                        <span class="tab-circle">5</span>
+                        <span class="tab-label d-none d-md-inline">Education</span>
+                    </div>
+                    <div class="tab-item" data-step="6">
+                        <span class="tab-circle">6</span>
+                        <span class="tab-label d-none d-md-inline">Work Experience</span>
+                    </div>
+                    <div class="tab-item" data-step="7">
+                        <span class="tab-circle">7</span>
+                        <span class="tab-label d-none d-md-inline">Documents</span>
+                    </div>
+                    <!-- <div class="progress-line"></div> -->
                 </div>
             </div>
 
@@ -459,21 +483,106 @@
         </div>
     </div>
 </div>
-
 @push('styles')
 <style>
-    .is-invalid { border-color: #dc3545 !important; box-shadow: 0 0 0 0.2rem rgba(220,53,69,0.25) !important; }
-    .invalid-feedback { display: block; color: #dc3545; font-size: 0.875rem; margin-top: 0.25rem; }
-</style>
-<style>
-    /* THIS SINGLE RULE FIXES YOUR ENTIRE PROBLEM */
-    .step.d-none {
-        visibility: hidden !important;
-        height: 1px !important;
-        overflow: hidden !important;
-        position: absolute !important;
-        left: -9999px !important;
+
+    /* Clickable Tabs Styling */
+    .step-tabs {
+        position: relative;
+        margin-bottom: 2.5rem;
     }
+    .step-tabs .d-flex {
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    .tab-item {
+        flex: 1;
+        text-align: center;
+        padding: 15px 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        min-width: 120px;
+        user-select: none;
+    }
+    .tab-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #e9ecef;
+        color: #6c757d;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        margin-bottom: 8px;
+    }
+    .tab-label {
+        font-size: 0.9rem;
+        color: #6c757d;
+        display: block;
+        transition: color 0.3s ease;
+    }
+
+    /* Active / Completed State */
+    .tab-item.active .tab-circle,
+    .tab-item.completed .tab-circle {
+        background: #0d6efd;
+        color: white;
+    }
+    .tab-item.active .tab-label,
+    .tab-item.completed .tab-label {
+        color: #0d6efd;
+        font-weight: 600;
+    }
+
+    /* Hover */
+    .tab-item:hover .tab-circle {
+        background: #0d6efd;
+        color: white;
+    }
+    .tab-item:hover .tab-label {
+        color: #0d6efd;
+    }
+
+    /* Progress Line */
+    .progress-line {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        height: 4px;
+        background: #0d6efd;
+        width: 14.28%; /* Will be updated via JS */
+        transition: width 0.4s ease;
+        z-index: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .tab-label { font-size: 0.8rem; }
+        .tab-item { padding: 12px 4px; }
+        .tab-circle { width: 35px; height: 35px; font-size: 1rem; }
+    }
+
+    /* Step Visibility */
+    .step { transition: opacity 0.4s ease; }
+    .step.active { opacity: 1; }
+    .step.d-none { 
+        opacity: 0; 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    /* Validation Styling */
+    .is-invalid { border-color: #dc3545 !important; }
+    .invalid-feedback { color: #dc3545; font-size: 0.875rem; margin-top: 0.25rem; display: block; }
 </style>
 @endpush
 
@@ -482,32 +591,54 @@
 document.addEventListener('DOMContentLoaded', function () {
     let currentStep = 1;
     const totalSteps = 7;
+    const hasErrors = {{ $errors->any() ? 'true' : 'false' }};
 
+    // Update Tabs & Progress Line
+    function updateTabsAndProgress() {
+        document.querySelectorAll('.tab-item').forEach((tab, index) => {
+            const stepNum = index + 1;
+            tab.classList.remove('active', 'completed');
+            if (stepNum < currentStep) {
+                tab.classList.add('completed');
+            } else if (stepNum === currentStep) {
+                tab.classList.add('active');
+            }
+        });
+
+        // Update progress line width
+        const progressPercent = ((currentStep - 1) / (totalSteps - 1)) * 100;
+        document.querySelector('.progress-line').style.width = progressPercent + '%';
+    }
+
+    // Show Specific Step
     function showStep(step) {
         document.querySelectorAll('.step').forEach(s => s.classList.add('d-none'));
         const el = document.getElementById('step' + step);
-        if (el) el.classList.remove('d-none');
-
-        const percent = Math.round((step / totalSteps) * 100);
-        const bar = document.getElementById('progressBar');
-        bar.style.width = percent + '%';
-        bar.innerText = `Step ${step} of ${totalSteps}`;
-
+        if (el) {
+            el.classList.remove('d-none');
+            el.classList.add('active');
+        }
+        currentStep = step;
+        updateTabsAndProgress();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Validate Current Step
     function validateStep(step) {
         const stepEl = document.getElementById('step' + step);
         if (!stepEl) return false;
 
-        stepEl.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-        stepEl.querySelectorAll('.invalid-feedback').forEach(el => el.remove());
+        // Clear previous errors
+        stepEl.querySelectorAll('.is-invalid, .invalid-feedback').forEach(el => {
+            el.classList.remove('is-invalid');
+            if (el.classList.contains('invalid-feedback')) el.remove();
+        });
 
         let isValid = true;
         let firstInvalid = null;
 
-        stepEl.querySelectorAll('input[required], select[required]').forEach(field => {
-            if (field.classList.contains('d-none') || field.closest('.d-none')) return;
+        stepEl.querySelectorAll('input[required], select[required], textarea[required]').forEach(field => {
+            if (field.closest('.d-none')) return;
             if (!field.value.trim()) {
                 isValid = false;
                 field.classList.add('is-invalid');
@@ -526,49 +657,79 @@ document.addEventListener('DOMContentLoaded', function () {
         return isValid;
     }
 
+    // Clickable Tabs
+    document.querySelectorAll('.tab-item').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetStep = parseInt(tab.getAttribute('data-step'));
+            
+            // Allow jumping only to previous or current step (or next if valid)
+            if (targetStep < currentStep || (targetStep === currentStep + 1 && validateStep(currentStep))) {
+                showStep(targetStep);
+            } else if (targetStep > currentStep) {
+                // Try to go forward only if current is valid
+                if (validateStep(currentStep)) {
+                    showStep(targetStep);
+                }
+            }
+        });
+    });
+
+    // Next Button
     document.querySelectorAll('.next-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             if (validateStep(currentStep) && currentStep < totalSteps) {
-                currentStep++;
-                showStep(currentStep);
+                showStep(currentStep + 1);
             }
         });
     });
 
+    // Previous Button
     document.querySelectorAll('.prev-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             if (currentStep > 1) {
-                currentStep--;
-                showStep(currentStep);
+                showStep(currentStep - 1);
             }
         });
     });
 
-    // Other field toggles
+    // Same as Permanent Address Checkbox
+    document.getElementById('same_as_permanent')?.addEventListener('change', function () {
+        if (this.checked) {
+            ['province', 'district', 'municipality', 'ward', 'tole', 'house_number'].forEach(field => {
+                const perm = document.getElementById('permanent_' + field)?.value || '';
+                document.getElementById('mailing_' + field).value = perm;
+            });
+        }
+    });
+
+    // Show "Other" fields
     ['religion', 'community', 'ethnic_group'].forEach(id => {
         const select = document.getElementById(id);
         const other = document.getElementById(id + '_other');
         if (select && other) {
-            select.addEventListener('change', () => {
-                other.classList.toggle('d-none', select.value !== 'Other');
-                if (select.value !== 'Other') other.value = '';
-            });
-            if (select.value === 'Other') other.classList.remove('d-none');
+            const toggle = () => other.classList.toggle('d-none', select.value !== 'Other');
+            select.addEventListener('change', toggle);
+            toggle();
         }
     });
 
-    // Same as permanent address
-    document.getElementById('same_as_permanent')?.addEventListener('change', function () {
-        if (this.checked) {
-            document.getElementById('mailing_province').value = document.getElementById('permanent_province').value || '';
-            document.getElementById('mailing_district').value = document.getElementById('permanent_district').value || '';
-            document.getElementById('mailing_municipality').value = document.getElementById('permanent_municipality').value || '';
-            document.getElementById('mailing_ward').value = document.getElementById('permanent_ward').value || '';
-            document.getElementById('mailing_tole').value = document.getElementById('permanent_tole').value || '';
-            document.getElementById('mailing_house_number').value = document.getElementById('permanent_house_number').value || '';
-        }
-    });
-    showStep(1);
+    // On Load: Jump to errored step or start at 1
+    if (hasErrors) {
+        setTimeout(() => {
+            const invalid = document.querySelector('.is-invalid');
+            if (invalid) {
+                const stepEl = invalid.closest('.step');
+                if (stepEl) {
+                    const stepNum = parseInt(stepEl.id.replace('step', ''));
+                    showStep(stepNum);
+                    return;
+                }
+            }
+            showStep(1);
+        }, 150);
+    } else {
+        showStep(1);
+    }
 });
 </script>
 @endpush
