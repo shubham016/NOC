@@ -112,16 +112,16 @@ class RegistrationFormController extends Controller
             'physical_disability' => 'nullable|in:yes,no',
 
             // File rules
-            'citizenship_id_document' => $isStore ? 'required|file|mimes:jpg,jpeg,png,pdf|max:5120' : 'nullable|file|mimes:jpg,jpeg,png,pdf|max:5120',
-            'resume_cv'               => $isStore ? 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:10240' : 'nullable|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:10240',
+            'citizenship_id_document' => $isStore ? 'required|file|mimes:jpg,jpeg,png,pdf|max:2048' : 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'resume_cv'               => $isStore ? 'required|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:2048' : 'nullable|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:2048',
             'passport_size_photo'     => $isStore ? 'required|image|mimes:jpg,jpeg,png,webp|max:2048' : 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
 
-            'ethnic_certificate'      => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:5120',
-            'noc_id_card'             => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:5120',
-            'disability_certificate'  => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:5120',
+            'ethnic_certificate'      => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'noc_id_card'             => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'disability_certificate'  => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
 
             'educational_certificates'     => 'nullable|array',
-            'educational_certificates.*'   => 'file|mimes:pdf,jpg,jpeg,png|max:10240', // 10MB,
+            'educational_certificates.*'   => 'file|mimes:pdf,jpg,jpeg,png|max:2048', // 2MB,
         ];
 
         return $rules;

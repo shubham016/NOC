@@ -63,6 +63,17 @@
                         <p class="mb-0">{{ ucfirst($registrationForm->marital_status ?? '-') }}</p>
                     </div>
                     <div class="col-md-4 mb-3">
+                        <strong>Spouse Name:</strong>
+                        <p class="mb-0">{{ ucfirst($registrationForm->spouse_name_english ?? '-') }}</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <strong>Spouse Nationality:</strong>
+                        <p class="mb-0">{{ ucfirst($registrationForm->spouse_nationality ?? '-') }}</p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
                         <strong>Blood Group:</strong>
                         <p class="mb-0">{{ $registrationForm->blood_group ?? '-' }}</p>
                     </div>
@@ -84,10 +95,10 @@
                         <p class="mb-0">{{ $registrationForm->citizenship_number ?? '-' }}</p>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <strong>Citizenship Issue Date:</strong>
+                        <strong>Citizenship Issue Date (B.S):</strong>
                         <p class="mb-0">
-                            @if($registrationForm->citizenship_issue_date_ad)
-                                {{ is_string($registrationForm->citizenship_issue_date_ad) ? \Carbon\Carbon::parse($registrationForm->citizenship_issue_date_ad)->format('F d, Y') : $registrationForm->citizenship_issue_date_ad->format('F d, Y') }}
+                            @if($registrationForm->citizenship_issue_date_bs)
+                                {{ is_string($registrationForm->citizenship_issue_date_bs) ? \Carbon\Carbon::parse($registrationForm->citizenship_issue_date_bs)->format('F d, Y') : $registrationForm->citizenship_issue_date_bs->format('F d, Y') }}
                             @else
                                 -
                             @endif
@@ -123,6 +134,10 @@
                     <div class="col-md-6 mb-3">
                         <strong>Mother's Qualification:</strong>
                         <p class="mb-0">{{ $registrationForm->mother_qualification ?? '-' }}</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <strong>Parents's Qualification:</strong>
+                        <p class="mb-0">{{ $registrationForm->parent_qualification ?? '-' }}</p>
                     </div>
                 </div>
                 <div class="row">

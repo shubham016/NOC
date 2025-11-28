@@ -110,28 +110,36 @@
                             </select>
                         </div>
                         <div class="col-md-4">
+                            <label for="spouse_name_english" class="form-label">Spouse Name (If Married)</label>
+                            <input type="text" name="spouse_name_english" id="spouse_name_english" class="form-control" value="{{ old('spouse_name_english',$registrationForm->spouse_name_english) }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="spouse_nationality" class="form-label">Spouse Nationality (If Married)</label>
+                            <input type="text" name="spouse_nationality" id="spouse_nationality" class="form-control" value="{{ old('spouse_nationality',$registrationForm->spouse_nationality) }}">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
                             <label for="citizenship_number" class="form-label">Citizenship Number <span class="text-danger">*</span></label>
                             <input type="text" name="citizenship_number" id="citizenship_number" class="form-control" value="{{ old('citizenship_number', $registrationForm->citizenship_number) }}" required>
                         </div>
                         <div class="col-md-4">
-                            <label for="citizenship_issue_date_ad" class="form-label">Citizenship Issue Date (AD)</label>
-                            <input type="date" name="citizenship_issue_date_ad" id="citizenship_issue_date_ad" class="form-control" value="{{ old('citizenship_issue_date_ad', $registrationForm->citizenship_issue_date_ad ? $registrationForm->citizenship_issue_date_ad->format('Y-m-d') : '') }}">
+                            <label for="citizenship_issue_date_bs" class="form-label">Citizenship Issue Date (B.S)<span class="text-danger">*</span></label>
+                            <input type="text" name="citizenship_issue_date_bs" id="citizenship_issue_date_bs" class="form-control" value="{{ old('citizenship_issue_date_bs', $registrationForm->citizenship_issue_date_bs ? $registrationForm->citizenship_issue_date_bs->format('Y-m-d') : '') }}" required>
                         </div>
-                    </div>
-
-                    <div class="row mb-3">
                         <div class="col-md-4">
                             <label for="citizenship_issue_district" class="form-label">Citizenship Issue District <span class="text-danger">*</span></label>
                             <input type="text" name="citizenship_issue_district" id="citizenship_issue_district" class="form-control" value="{{ old('citizenship_issue_district', $registrationForm->citizenship_issue_district) }}" required>
                         </div>
-                        <div class="col-md-4">
-                            <label for="father_name_english" class="form-label">Father Name (बुबाको नाम) <span class="text-danger">*</span></label>
-                            <input type="text" name="father_name_english" id="father_name_english" class="form-control" value="{{ old('father_name_english', $registrationForm->father_name_english) }}" required>
-                        </div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-4">
+                    <div class="col-md-4">
+                            <label for="father_name_english" class="form-label">Father Name (बुबाको नाम) <span class="text-danger">*</span></label>
+                            <input type="text" name="father_name_english" id="father_name_english" class="form-control" value="{{ old('father_name_english', $registrationForm->father_name_english) }}" required>
+                        </div>    
+                    <div class="col-md-4">
                             <label for="mother_name_english" class="form-label">Mother Name (आमाको नाम) <span class="text-danger">*</span></label>
                             <input type="text" name="mother_name_english" id="mother_name_english" class="form-control" value="{{ old('mother_name_english', $registrationForm->mother_name_english) }}" required>
                         </div>
@@ -149,6 +157,10 @@
                         <div class="col-md-4">
                             <label for="mother_qualification" class="form-label">Mother's Qualification (आमाको योग्यता) <span class="text-danger">*</span></label>
                             <input type="text" name="mother_qualification" id="mother_qualification" class="form-control" value="{{ old('mother_qualification', $registrationForm->mother_qualification) }}" required>
+                        </div>
+                         <div class="col-md-4">
+                            <label for="parent_occupation" class="form-label">Parents's Occupation<span class="text-danger">*</span></label>
+                            <input type="text" name="parent_occupation" id="parent_occupation" class="form-control" value="{{ old('parent_occupation', $registrationForm->parent_occupation) }}" required>
                         </div>
                     </div>
 
@@ -178,7 +190,7 @@
                             @if($registrationForm->noc_id_card)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->noc_id_card) }}" target="_blank">View File</a></small>
                             @endif
-                            <small class="text-muted d-block">Max size: 5MB</small>
+                            <small class="text-muted d-block">Max size: 2MB</small>
                         </div>
                     </div>
 
@@ -236,7 +248,7 @@
                             @if($registrationForm->disability_certificate)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->disability_certificate) }}" target="_blank">View File</a></small>
                             @endif
-                            <small class="text-muted d-block">Max size: 10MB</small>
+                            <small class="text-muted d-block">Max size: 2MB</small>
                         </div>
                         <div class="col-md-4">
                             <label for="mother_tongue" class="form-label">Mother Tongue <span class="text-danger">*</span> <small>(मातृभाषा)</small></label>
@@ -278,7 +290,7 @@
                             @if($registrationForm->disability_certificate)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->disability_certificate) }}" target="_blank">View File</a></small>
                             @endif
-                            <small class="text-muted d-block">Max size: 10MB</small>
+                            <small class="text-muted d-block">Max size: 2MB</small>
                         </div>
                     </div>
 
@@ -401,18 +413,18 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="field_of_study" class="form-label">Field of Study</label>
-                            <input type="text" name="field_of_study" id="field_of_study" class="form-control" value="{{ old('field_of_study', $registrationForm->field_of_study) }}">
+                            <label for="field_of_study" class="form-label">Field of Study<span class="text-danger">*</span></label>
+                            <input type="text" name="field_of_study" id="field_of_study" class="form-control" value="{{ old('field_of_study', $registrationForm->field_of_study) }}" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="institution_name" class="form-label">Institution Name</label>
-                            <input type="text" name="institution_name" id="institution_name" class="form-control" value="{{ old('institution_name', $registrationForm->institution_name) }}">
+                            <label for="institution_name" class="form-label">Institution Name<span class="text-danger">*</span></label>
+                            <input type="text" name="institution_name" id="institution_name" class="form-control" value="{{ old('institution_name', $registrationForm->institution_name) }}"required>
                         </div>
                         <div class="col-md-6">
-                            <label for="graduation_year" class="form-label">Graduation Year</label>
-                            <input type="number" name="graduation_year" id="graduation_year" class="form-control" min="1950" max="2030" value="{{ old('graduation_year', $registrationForm->graduation_year) }}">
+                            <label for="graduation_year" class="form-label">Graduation Year<span class="text-danger">*</span></label>
+                            <input type="number" name="graduation_year" id="graduation_year" class="form-control" min="1950" max="2030" value="{{ old('graduation_year', $registrationForm->graduation_year) }}"required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -434,18 +446,18 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="years_of_experience" class="form-label">Years of Experience</label>
-                            <input type="number" name="years_of_experience" id="years_of_experience" class="form-control" min="0" step="0.5" value="{{ old('years_of_experience', $registrationForm->years_of_experience) }}">
+                            <label for="years_of_experience" class="form-label">Years of Experience<span class="text-danger">*</span></label>
+                            <input type="number" name="years_of_experience" id="years_of_experience" class="form-control" min="0" step="0.5" value="{{ old('years_of_experience', $registrationForm->years_of_experience) }}"required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="previous_organization" class="form-label">Previous Organization</label>
-                            <input type="text" name="previous_organization" id="previous_organization" class="form-control" value="{{ old('previous_organization', $registrationForm->previous_organization) }}">
+                            <label for="previous_organization" class="form-label">Previous Organization<span class="text-danger">*</span></label>
+                            <input type="text" name="previous_organization" id="previous_organization" class="form-control" value="{{ old('previous_organization', $registrationForm->previous_organization) }}"required>
                         </div>
                         <div class="col-md-6">
-                            <label for="previous_position" class="form-label">Previous Position</label>
-                            <input type="text" name="previous_position" id="previous_position" class="form-control" value="{{ old('previous_position', $registrationForm->previous_position) }}">
+                            <label for="previous_position" class="form-label">Previous Position<span class="text-danger">*</span></label>
+                            <input type="text" name="previous_position" id="previous_position" class="form-control" value="{{ old('previous_position', $registrationForm->previous_position) }}"required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -459,34 +471,35 @@
                     <h5 class="mb-4 text-primary">Step 7 — Upload Documents</h5>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="passport_size_photo" class="form-label">Passport Size Photo</label>
-                            <input type="file" name="passport_size_photo" id="passport_size_photo" class="form-control" accept="image/*,application/pdf">
+                            <label for="passport_size_photo" class="form-label">Passport Size Photo<span class="text-danger">*</span></label>
+                            <input type="file" name="passport_size_photo" id="passport_size_photo" class="form-control" accept="image/*,application/pdf"required>
                             @if($registrationForm->passport_size_photo)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->passport_size_photo) }}" target="_blank">View File</a></small>
                             @endif
-                            <small class="text-muted d-block">Max size: 10MB</small>
+                            <small class="text-muted d-block">Max size: 2MB</small>
                         </div>
                         <div class="col-md-6">
-                            <label for="citizenship_id_document" class="form-label">Citizenship/ID Document</label>
-                            <input type="file" name="citizenship_id_document" id="citizenship_id_document" class="form-control" accept="image/*,application/pdf">
+                            <label for="citizenship_id_document" class="form-label">Citizenship/ID Document<span class="text-danger">*</span></label>
+                            <input type="file" name="citizenship_id_document" id="citizenship_id_document" class="form-control" accept="image/*,application/pdf"required>
                             @if($registrationForm->citizenship_id_document)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->citizenship_id_document) }}" target="_blank">View File</a></small>
                             @endif
-                            <small class="text-muted d-block">Max size: 10MB</small>
+                            <small class="text-muted d-block">Max size: 2MB</small>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="resume_cv" class="form-label">Resume/CV</label>
-                            <input type="file" name="resume_cv" id="resume_cv" class="form-control" accept="image/*,application/pdf">
+                            <label for="resume_cv" class="form-label">Resume/CV<span class="text-danger">*</span></label>
+                            <input type="file" name="resume_cv" id="resume_cv" class="form-control" accept="image/*,application/pdf" required>
                             @if($registrationForm->resume_cv)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->resume_cv) }}" target="_blank">View File</a></small>
                             @endif
-                            <small class="text-muted d-block">Max size: 10MB</small>
+                            <small class="text-muted d-block">Max size: 2MB</small>
                         </div>
                         <div class="col-md-6">
-                            <label for="educational_certificates" class="form-label">Educational Certificates</label>
-                            <input type="file" name="educational_certificates[]" id="educational_certificates" class="form-control" accept="application/pdf,image/png,image/jpeg" multiple>
+                            <label for="educational_certificates" class="form-label">Educational Certificates<span class="text-danger">*</span></label>
+                            <input type="file" name="educational_certificates[]" id="educational_certificates" class="form-control" accept="application/pdf,image/png,image/jpeg" multiple
+                            required>
 
                             @if($registrationForm->educational_certificates)
                                 @php
@@ -511,7 +524,7 @@
                                 @endif
                             @endif
 
-                            <small class="text-muted d-block">Max size: 10MB (multiple allowed)</small>
+                            <small class="text-muted d-block">Max size: 2MB (multiple allowed)</small>
                         </div>
 
                     </div>
