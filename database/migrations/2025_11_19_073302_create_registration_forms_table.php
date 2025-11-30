@@ -78,6 +78,22 @@ return new class extends Migration
             $table->string('mailing_tole')->nullable(); // टोलको नाम
             $table->string('mailing_house_number')->nullable(); // घर नम्बर
             
+            // Missing
+            $table->string('name')->nullable(); 
+            $table->string('education_level')->nullable(); 
+            $table->string('field_of_study')->nullable(); 
+            $table->integer('graduation_year')->nullable();
+            $table->string('has_work_experience')->nullable();
+            $table->integer('years_of_experience')->nullable();
+            $table->string('previous_organization')->nullable(); 
+            $table->string('previous_position')->nullable();   
+            $table->string('citizenship_id_document')->nullable(); 
+            $table->string('resume_cv')->nullable(); 
+            $table->string('educational_certificates')->nullable();  
+            $table->string('passport_size_photo')->nullable(); 
+            $table->string('instituion_name')->nullable(); 
+            $table->string('terms_agree')->nullable();
+            $table->string('ethnic_certificate')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamps();
         });
