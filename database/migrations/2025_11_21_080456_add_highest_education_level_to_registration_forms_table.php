@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('registration_forms', function (Blueprint $table) {
+        Schema::table('registration_form', function (Blueprint $table) {
             //
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('registration_forms', function (Blueprint $table) {
+        Schema::table('registration_form', function (Blueprint $table) {
             //
         });
     }

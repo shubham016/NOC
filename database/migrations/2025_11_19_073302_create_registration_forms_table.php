@@ -8,9 +8,9 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('registration_forms');
+        Schema::dropIfExists('registration_form');
         
-        Schema::create('registration_forms', function (Blueprint $table) {
+        Schema::create('registration_form', function (Blueprint $table) {
             $table->id();
             
             // General Information
@@ -85,6 +85,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('registration_forms');
+        Schema::dropIfExists('registration_form');
     }
 };
