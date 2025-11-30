@@ -245,8 +245,8 @@
                        <div class="col-md-6">
                             <label for="ethnic_certificate" class="form-label">Ethnic Certificate</label>
                             <input type="file" name="ethnic_certificate" id="ethnic_certificate" class="form-control" accept="image/*,application/pdf">
-                            @if($registrationForm->disability_certificate)
-                                <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->disability_certificate) }}" target="_blank">View File</a></small>
+                            @if($registrationForm->ethnic_certificate)
+                                <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->ethnic_certificate) }}" target="_blank">View File</a></small>
                             @endif
                             <small class="text-muted d-block">Max size: 2MB</small>
                         </div>

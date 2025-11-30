@@ -91,9 +91,8 @@ return new class extends Migration
             $table->string('resume_cv')->nullable(); 
             $table->string('educational_certificates')->nullable();  
             $table->string('passport_size_photo')->nullable(); 
-            $table->string('instituion_name')->nullable(); 
+            $table->string('institution_name')->nullable(); 
             $table->string('terms_agree')->nullable();
-            $table->string('ethnic_certificate')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamps();
         });
