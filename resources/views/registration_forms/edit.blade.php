@@ -126,7 +126,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="citizenship_issue_date_bs" class="form-label">Citizenship Issue Date (B.S)<span class="text-danger">*</span></label>
-                            <input type="text" name="citizenship_issue_date_bs" id="citizenship_issue_date_bs" class="form-control" value="{{ old('citizenship_issue_date_bs', $registrationForm->citizenship_issue_date_bs ? $registrationForm->citizenship_issue_date_bs->format('Y-m-d') : '') }}" required>
+                            <input type="text" name="citizenship_issue_date_bs" id="citizenship_issue_date_bs" class="form-control" value="{{ old('citizenship_issue_date_bs', $registrationForm->citizenship_issue_date_bs) }}" required>
                         </div>
                         <div class="col-md-4">
                             <label for="citizenship_issue_district" class="form-label">Citizenship Issue District <span class="text-danger">*</span></label>
@@ -471,16 +471,16 @@
                     <h5 class="mb-4 text-primary">Step 7 — Upload Documents</h5>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="passport_size_photo" class="form-label">Passport Size Photo<span class="text-danger">*</span></label>
-                            <input type="file" name="passport_size_photo" id="passport_size_photo" class="form-control" accept="image/*,application/pdf"required>
+                            <label for="passport_size_photo" class="form-label">Passport Size Photo</label>
+                            <input type="file" name="passport_size_photo" id="passport_size_photo" class="form-control" accept="image/*,application/pdf">
                             @if($registrationForm->passport_size_photo)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->passport_size_photo) }}" target="_blank">View File</a></small>
                             @endif
                             <small class="text-muted d-block">Max size: 2MB</small>
                         </div>
                         <div class="col-md-6">
-                            <label for="citizenship_id_document" class="form-label">Citizenship/ID Document<span class="text-danger">*</span></label>
-                            <input type="file" name="citizenship_id_document" id="citizenship_id_document" class="form-control" accept="image/*,application/pdf"required>
+                            <label for="citizenship_id_document" class="form-label">Citizenship/ID Document</label>
+                            <input type="file" name="citizenship_id_document" id="citizenship_id_document" class="form-control" accept="image/*,application/pdf">
                             @if($registrationForm->citizenship_id_document)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->citizenship_id_document) }}" target="_blank">View File</a></small>
                             @endif
@@ -489,17 +489,16 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="resume_cv" class="form-label">Resume/CV<span class="text-danger">*</span></label>
-                            <input type="file" name="resume_cv" id="resume_cv" class="form-control" accept="image/*,application/pdf" required>
+                            <label for="resume_cv" class="form-label">Resume/CV</label>
+                            <input type="file" name="resume_cv" id="resume_cv" class="form-control" accept="image/*,application/pdf">
                             @if($registrationForm->resume_cv)
                                 <small class="text-muted">Current: <a href="{{ asset('storage/' . $registrationForm->resume_cv) }}" target="_blank">View File</a></small>
                             @endif
                             <small class="text-muted d-block">Max size: 2MB</small>
                         </div>
                         <div class="col-md-6">
-                            <label for="educational_certificates" class="form-label">Educational Certificates<span class="text-danger">*</span></label>
-                            <input type="file" name="educational_certificates[]" id="educational_certificates" class="form-control" accept="application/pdf,image/png,image/jpeg" multiple
-                            required>
+                            <label for="educational_certificates" class="form-label">Educational Certificates</label>
+                            <input type="file" name="educational_certificates[]" id="educational_certificates" class="form-control" accept="application/pdf,image/png,image/jpeg" multiple>
 
                             @if($registrationForm->educational_certificates)
                                 @php
@@ -516,11 +515,11 @@
                                         @foreach($certificates as $index => $cert)
                                             <a href="{{ asset('storage/educational-certificates/' . basename($cert)) }}" 
                                             target="_blank" 
-                                            class="btn btn-sm btn-info me-1 mb-1">
+                                            class="btn btn-sm bg-light me-1 mb-1">
                                                 <i class="fas fa-certificate"></i> View Certificate {{ $index + 1 }}
                                             </a>
                                         @endforeach
-            </div>
+                                     </div>
                                 @endif
                             @endif
 

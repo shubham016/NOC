@@ -351,7 +351,7 @@
                         <strong>Passport Size Photo:</strong>
                         <p class="mb-0">
                             @if($registrationForm->passport_size_photo)
-                                <a href="{{ asset('storage/' . $registrationForm->passport_size_photo) }}" target="_blank" class="btn btn-sm btn-info">
+                                <a href="{{ asset('storage/' . $registrationForm->passport_size_photo) }}" target="_blank" class="btn btn-sm bg-light">
                                     <i class="fas fa-image"></i> View Photo
                                 </a>
                             @else
@@ -363,7 +363,7 @@
                         <strong>Citizenship/ID Document:</strong>
                         <p class="mb-0">
                             @if($registrationForm->citizenship_id_document)
-                                <a href="{{ asset('storage/' . $registrationForm->citizenship_id_document) }}" target="_blank" class="btn btn-sm btn-info">
+                                <a href="{{ asset('storage/' . $registrationForm->citizenship_id_document) }}" target="_blank" class="btn btn-sm bg-light">
                                     <i class="fas fa-file-pdf"></i> View Document
                                 </a>
                             @else
@@ -377,7 +377,7 @@
                         <strong>Resume/CV:</strong>
                         <p class="mb-0">
                             @if($registrationForm->resume_cv)
-                                <a href="{{ asset('storage/' . $registrationForm->resume_cv) }}" target="_blank" class="btn btn-sm btn-info">
+                                <a href="{{ asset('storage/' . $registrationForm->resume_cv) }}" target="_blank" class="btn btn-sm bg-light">
                                     <i class="fas fa-file-alt"></i> View Resume
                                 </a>
                             @else
@@ -396,7 +396,7 @@
                                 @endphp
                                 @if(is_array($certificates) && count($certificates) > 0)
                                     @foreach($certificates as $index => $cert)
-                                        <a href="{{ asset('storage/' . $cert) }}" target="_blank" class="btn btn-sm btn-info me-1 mb-1">
+                                        <a href="{{ asset('storage/' . $cert) }}" target="_blank" class="btn btn-sm bg-light me-1 mb-1">
                                             <i class="fas fa-certificate"></i> Certificate {{ $index + 1 }}
                                         </a>
                                     @endforeach
@@ -414,7 +414,7 @@
                         <strong>NOC ID Card:</strong>
                         <p class="mb-0">
                             @if($registrationForm->noc_id_card)
-                                <a href="{{ asset('storage/' . $registrationForm->noc_id_card) }}" target="_blank" class="btn btn-sm btn-info">
+                                <a href="{{ asset('storage/' . $registrationForm->noc_id_card) }}" target="_blank" class="btn btn-sm bg-light">
                                     <i class="fas fa-id-card"></i> View NOC ID
                                 </a>
                             @else
@@ -426,7 +426,7 @@
                         <strong>Ethnic Certificate:</strong>
                         <p class="mb-0">
                             @if($registrationForm->ethnic_certificate)
-                                <a href="{{ asset('storage/' . $registrationForm->ethnic_certificate) }}" target="_blank" class="btn btn-sm btn-info">
+                                <a href="{{ asset('storage/' . $registrationForm->ethnic_certificate) }}" target="_blank" class="btn btn-sm bg-light">
                                     <i class="fas fa-certificate"></i> View Certificate
                                 </a>
                             @else
@@ -440,7 +440,7 @@
                         <strong>Disability Certificate:</strong>
                         <p class="mb-0">
                             @if($registrationForm->disability_certificate)
-                                <a href="{{ asset('storage/' . $registrationForm->disability_certificate) }}" target="_blank" class="btn btn-sm btn-info">
+                                <a href="{{ asset('storage/' . $registrationForm->disability_certificate) }}" target="_blank" class="btn btn-sm bg-light">
                                     <i class="fas fa-file"></i> View Certificate
                                 </a>
                             @else
@@ -491,7 +491,7 @@
                         <strong>Same as Permanent Address:</strong>
                         <p class="mb-0">
                             @if($registrationForm->same_as_permanent)
-                                <span class="badge bg-info">Yes</span>
+                                <span class="badge bg-success">Yes</span>
                             @else
                                 <span class="badge bg-secondary">No</span>
                             @endif
