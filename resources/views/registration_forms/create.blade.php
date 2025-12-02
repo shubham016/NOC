@@ -4,7 +4,7 @@
 <div class="container my-5">
     <div class="card shadow-lg border-0">
         <div class="card-header bg-primary text-white text-center py-4">
-            <h3 class="mb-0 fw-bold">NOC | Create New Employee Registration Form</h3>
+            <h3 class="mb-0 fw-bold">NOC | New Application Form</h3>
         </div>
         <div class="card-body p-5">
 

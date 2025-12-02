@@ -6,7 +6,7 @@
 <div class="container my-4">
     <div class="card shadow-sm">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">Employee Registration Details</h4>
+            <h4 class="mb-0">Employee Application Details</h4>
             <div>
                 <a href="{{ route('registration-forms.edit', $registrationForm->id) }}" class="btn btn-warning btn-sm me-2">
                     <i class="fas fa-edit"></i> Edit

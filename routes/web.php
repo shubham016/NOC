@@ -29,3 +29,14 @@ Route::get('/', function () {
         return view('registration_forms.welcome');
     })->name('welcome');
 });
+
+/* Route::resource('registration-forms', RegistrationFormController::class);
+
+Route::prefix('registration-forms')->name('registration-forms.')->group(function () {
+    Route::get('/create', [RegistrationFormController::class, 'create'])->name('create');
+    Route::get('/{id}/edit', [RegistrationFormController::class, 'edit'])->name('edit');
+    Route::get('/{id}', [RegistrationFormController::class, 'show'])->name('show');
+    Route::get('/welcome', function () {
+        return view('registration_forms.welcome');
+    })->name('welcome');
+}); */
